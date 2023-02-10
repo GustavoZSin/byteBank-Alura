@@ -1,4 +1,5 @@
 ﻿using byteBank_ADM.Funcionarios;
+using byteBank_ADM.Parceria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,20 @@ namespace byteBank_ADM.SistemaInterno
                 Console.WriteLine("Boas vindas ao sistema");
                 return true;
             } else
+            {
+                Console.WriteLine("Usuário ou senha incorretos");
+                return false;
+            }
+        }
+        public bool Logar(ParceiroComercial funcionario, string login, string senha)
+        {
+            bool usuarioLogado = funcionario.Autenticar(login, senha);
+            if (usuarioLogado)
+            {
+                Console.WriteLine("Boas vindas ao sistema");
+                return true;
+            }
+            else
             {
                 Console.WriteLine("Usuário ou senha incorretos");
                 return false;
