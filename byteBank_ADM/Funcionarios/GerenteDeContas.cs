@@ -1,4 +1,5 @@
-﻿using System;
+﻿using byteBank_ADM.SistemaInterno;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace byteBank_ADM.Funcionarios
 {
-    internal class GerenteDeContas:Funcionario
+    public class GerenteDeContas : Autenticavel
     {
         public int tipo;
         public static int TotalDeGerentes { get; private set; }
@@ -24,6 +25,11 @@ namespace byteBank_ADM.Funcionarios
         public override void AumentarSalario()
         {
             this.Salario *= 1.05;
+        }
+
+        public override bool Autenticar(string login, string senha)
+        {
+            return (this.Login == login && this.Senha == senha);
         }
     }
 }
