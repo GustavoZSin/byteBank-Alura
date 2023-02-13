@@ -5,6 +5,7 @@ namespace byteBank.Contas
     internal class ContaCorrente
     {
         public static int TotalDeContasCriadas { get; private set; }
+        public static float TaxaOperacao { get; private set; }
 
         private int numero_agencia;
         public int Numero_agencia
@@ -78,7 +79,18 @@ namespace byteBank.Contas
             this.Numero_agencia = numero_agencia;
             this.Conta = numero_conta;
             SetSaldo(saldo);
+
+            try
+            {
+                TaxaOperacao = 30 / TotalDeContasCriadas;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Ocorreu um erro! Tentativa de divisão por zero!");
+            }
+
             TotalDeContasCriadas++;
+
         }
     }
 }

@@ -81,4 +81,10 @@ void UsarSistema()
     ParceiroComercial caio = new ParceiroComercial();
     caio.Senha = "123";
     sistema.Logar(caio, "Caio", "123");
+
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("Teste");
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("Teste");
+
 }
