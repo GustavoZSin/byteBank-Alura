@@ -80,14 +80,19 @@ namespace byteBank.Contas
             this.Conta = numero_conta;
             SetSaldo(saldo);
 
-            try
+            if(Numero_agencia <= 0)
+            {
+                throw new ArgumentException("Número de agência menor ou igual à zero", nameof(numero_agencia));
+            }
+
+            /*try
             {
                 TaxaOperacao = 30 / TotalDeContasCriadas;
             }
             catch (DivideByZeroException)
             {
                 Console.WriteLine("Ocorreu um erro! Tentativa de divisão por zero!");
-            }
+            }*/
 
             TotalDeContasCriadas++;
 
