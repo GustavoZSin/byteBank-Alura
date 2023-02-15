@@ -39,7 +39,8 @@ namespace byteBank.Contas
             }
             else
             {
-                return false;
+                throw new SaldoInsuficienteException("Tentativa de saque de valor maior que o saldo");
+                //return false;
             }
         }
 
