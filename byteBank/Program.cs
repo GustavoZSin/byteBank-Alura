@@ -32,7 +32,7 @@ Cliente cliente3_0 = new Cliente("Robson", "12345678910", "Dev");
 
 try
 {
-    ContaCorrente conta3_0 = new ContaCorrente(15, "1010-X", 150, cliente3_0);
+    ContaCorrente conta3_0 = new ContaCorrente(0, "1010-X", 150, cliente3_0);
     conta3_0.Sacar(500);
 
 }
@@ -40,6 +40,7 @@ catch (ArgumentException ex)
 {
     Console.WriteLine("Parâmetro com erro:"+ ex .ParamName);
     Console.WriteLine("Não é possível criar uma conta com o número de agência menor ou igual à zero.");
+    Console.WriteLine(ex.StackTrace);
     Console.WriteLine(ex.Message);
 }
 catch(SaldoInsuficienteException ex)
