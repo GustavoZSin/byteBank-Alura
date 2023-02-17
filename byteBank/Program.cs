@@ -2,7 +2,6 @@
 using byteBank.Contas;
 using byteBank.Titular;
 
-
 //------------------------------------------------------
 
 /*Cliente cliente3_0 = new Cliente("Robson", "12345678910", "Dev");
@@ -28,7 +27,7 @@ Console.WriteLine("Total de contas criadas: " + ContaCorrente.TotalDeContasCriad
 Console.WriteLine("Total de clientes criados: " + Cliente.TotalDeClientesCriados);*/
 
 
-Cliente cliente3_0 = new Cliente("Robson", "12345678910", "Dev");
+/*Cliente cliente3_0 = new Cliente("Robson", "12345678910", "Dev");
 
 try
 {
@@ -47,4 +46,21 @@ catch(SaldoInsuficienteException ex)
 {
     Console.WriteLine("Operação negada! Saldo insuficiente!");
     Console.WriteLine(ex.Message);
+}*/
+
+//------------------------------------------------------
+LeitorDeArquivos leitor = new LeitorDeArquivos("contas.txt");
+
+try
+{
+    leitor.LerProximaLinha();
+    leitor.LerProximaLinha();
+}
+catch (IOException Ex)
+{
+    Console.WriteLine("Leitura de arquivo interrompida");
+}
+finally
+{
+    leitor.Dispose();
 }
