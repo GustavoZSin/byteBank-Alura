@@ -33,7 +33,7 @@ Console.WriteLine("Pedro:" + pedro.Salario);
 Console.WriteLine("Cleber:" + cleber.Salario);*/
 #endregion
 
-//CalculaBonificacao();
+/*//CalculaBonificacao();
 UsarSistema();
 
 void CalculaBonificacao()
@@ -87,4 +87,117 @@ void UsarSistema()
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("Teste");
 
+}*/
+
+//TestaArrayInt();
+
+void TestaArrayInt()
+{
+    int[] idades = new int[5];
+
+    idades[0] = 30;
+    idades[1] = 40;
+    idades[2] = 17;
+    idades[3] = 21;
+    idades[4] = 18;
+
+    Console.WriteLine("Tamanho: " + idades.Length);
+
+    int soma = 0;
+    for (int i = 0; i < idades.Length; i++)
+    {
+        int idade = idades[i];
+        Console.WriteLine("Idade: " + idade);
+        soma += idade;
+    }
+    int media = soma / idades.Length;
+    Console.WriteLine("Média: " + media);
+}
+
+
+//TestaBuscaPalavra();
+
+void TestaBuscaPalavra()
+{
+    string[] stringArray = new string[5];
+
+    for (int i = 0; i < stringArray.Length; i++)
+    {
+        Console.WriteLine("Digite a " + (i + 1) + "ª palavra:");
+
+        stringArray[i] = Console.ReadLine();
+    }
+
+    Console.WriteLine("Digite a palavra a ser buscada.");
+    var busca = Console.ReadLine();
+
+    foreach (var palavra in stringArray)
+    {
+        if (palavra.Equals(busca))
+        {
+            Console.WriteLine("Palavra:" + busca);
+            break;
+        }
+    }
+}
+
+
+Array amostra = new double[5];
+amostra.SetValue(5.9, 0);
+amostra.SetValue(1.8, 1);
+amostra.SetValue(7.1, 2);
+amostra.SetValue(10, 3);
+amostra.SetValue(6.9, 4);
+
+//TestaMediana(amostra);
+
+void TestaMediana(Array array)
+{
+    if ((array == null) || (array.Length == 0))
+    {
+        Console.WriteLine("Array vazio");
+    }
+    else
+    {
+        double[] numerosOrdenados = (double[])array.Clone();
+        Array.Sort(numerosOrdenados);
+
+        int tamanho = numerosOrdenados.Length;
+        int meio = tamanho / 2;
+        double mediana = (tamanho % 2 != 0) ? numerosOrdenados[meio] : (numerosOrdenados[meio] + numerosOrdenados[meio - 1]) / 2;
+
+        Console.WriteLine("Mediana calculada com os dados é: " + mediana);
+    }
+}
+
+
+
+double[] amostraMedia = new double[5];
+amostraMedia.SetValue(5.9, 0);
+amostraMedia.SetValue(1.8, 1);
+amostraMedia.SetValue(7.1, 2);
+amostraMedia.SetValue(10, 3);
+amostraMedia.SetValue(6.9, 4);
+
+Console.WriteLine(CalculaMedia(amostraMedia).ToString("N2"));
+
+double CalculaMedia(double[] lista)
+{
+    double media = 0;
+
+    if ((lista == null) || (lista.Length == 0))
+    {
+        Console.WriteLine("Array vazio");
+    }
+    else
+    {
+        double sum = 0;
+        for (int i = 0; i < lista.Length; i++)
+        {
+            sum = sum + lista[i];
+        }
+
+        media = sum / 2;
+    }
+    return media;
 }
